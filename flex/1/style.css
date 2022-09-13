@@ -12,20 +12,34 @@ body {
     position: relative;
     height: 100%;
     max-width: 650px;
+}
 
-    /* default values */
-    /*
+.justify-flex-start {
     justify-content: flex-start;
-    align-items: stretch;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-content: normal;
-    */
+}
+
+.justify-flex-end {
+    justify-content: flex-end;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.justify-space-around {
+    justify-content: space-around;
+}
+
+.justify-space-between {
+    justify-content: space-between;
+}
+
+.justify-space-evenly {
+    justify-content: space-evenly;
 }
 
 .flex-item {
     width: 20%;
-    height: 20%;
 
     /* styling */
     background-color: #006699FF;

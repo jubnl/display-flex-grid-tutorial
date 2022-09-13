@@ -12,20 +12,26 @@ body {
     position: relative;
     height: 100%;
     max-width: 650px;
+}
 
-    /* default values */
-    /*
-    justify-content: flex-start;
+.stretch {
     align-items: stretch;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-content: normal;
-    */
+}
+
+.flex-start {
+    align-items: flex-start;
+}
+
+.flex-end {
+    align-items: flex-end;
+}
+
+.center {
+    align-items: center;
 }
 
 .flex-item {
     width: 20%;
-    height: 20%;
 
     /* styling */
     background-color: #006699FF;
@@ -37,4 +43,19 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.flex-item:nth-child(1) {
+    height: 75px;
+
+    /* uncomment to see height initial */
+    /* height: initial; */
+}
+
+.flex-item:nth-child(2) {
+    height: 100px;
+}
+
+.flex-item:nth-child(3) {
+    height: 125px;
 }
