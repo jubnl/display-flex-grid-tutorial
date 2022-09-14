@@ -218,3 +218,38 @@ Cela fonctionne de la même manière que `center` pour `justify-content`, mais l
 Cela couvre toutes les façons dont vous pouvez disposer les éléments le long de l'axe principal et de l'axe transversal,
 mais il y a encore une chose importante que vous devez savoir sur les axes flexbox. Ils peuvent en fait être intervertis.
 Il existe une propriété appelée `flex-direction` qui détermine l'orientation de l'axe principal et de l'axe transversal.
+
+## `flex-direction`
+
+Cette propriété nous permet de déterminer à quelle direction correspond chaque axe ainsi que le point de départ des axes.
+
+### `row` (default)
+
+La direction par défaut est la ligne. Cela signifie que l'axe principal est horizontal et que l'axe transversal est
+vertical. Cela signifie également que l'axe principal commence à gauche tandis que l'axe transversal commence en haut.
+
+
+
+## Flex Item Layout
+
+## Sizing Flex Items
+
+### `flex-grow`
+
+### `flex-basis`
+
+### `flex-shrink`
+
+## Flex Wrapping
+
+### Advanced Wrapping Layout
+
+## Advanced Flexbox Properties
+
+### Adding Gaps
+
+### Ordering Elements
+
+### Flex Shorthand
+
+## Conclusion
