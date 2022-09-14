@@ -238,11 +238,63 @@ vertical. Cela signifie également que l'axe principal commence à gauche tandis
   align-items: flex-start;
 }
 ```
+
+![flex-direction-row](assets/3_row.png "flex-direction: row")
+
 ### `row-reverse`
+
+Comme pour `row`, nous avons `row-reverse`. Cette direction n'intervertit pas l'axe principal et l'axe transversal, mais elle
+intervertit le point de départ de l'axe principal. L'axe principal commence maintenant à droite, tandis que l'axe
+transversal ne change pas et commence toujours en haut. Vous verrez ci-dessous que nos éléments commencent sur le côté
+droit du conteneur et sont classés de droite à gauche puisque nous utilisons l'ordre inverse.
+
+```css
+.flex-container {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+```
+
+![flex-direction-row-reverse](assets/3_row-reverse.png "flex-direction: row-reverse")
 
 ### `column`
 
+La direction `column` intervertit complètement nos axes : l'axe principal est désormais vertical et l'axe transversal est
+horizontal. Cela signifie que si vous utilisez JustifyContent, vous disposerez les éléments dans le sens vertical et
+`align-items` fonctionnera dans le sens horizontal.
+
+```css
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+```
+
+![flex-direction-column](assets/3_col.png "flex-direction: column")
+
 ### `column-reverse`
+
+La direction `column-reverse` est essentiellement la même que `column`, mais elle inverse la direction de l'axe principal de
+sorte que les éléments commencent maintenant au bas du conteneur.
+
+```css
+.flex-container {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: flex-start;
+  align-items: center;
+}
+```
+
+![flex-direction-column-reverse](assets/3_col-reverse.png "flex-direction: column-reverse")
+
+Nous venons d'aborder un grand nombre de sujets liés à la mise en page, mais les principaux éléments que vous devez
+comprendre sont `justify-content`, `align-items`, `flex-direction`, et la manière dont chacun d'entre eux affecte
+l'axe principal/croisé.
 
 ## Flex Item Layout
 
