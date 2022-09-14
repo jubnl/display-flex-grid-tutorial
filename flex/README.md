@@ -221,6 +221,8 @@ Il existe une propriété appelée `flex-direction` qui détermine l'orientation
 
 ## `flex-direction`
 
+Vous pouvez retrouver un exemple du `flex-direction` [ici](3).
+
 Cette propriété nous permet de déterminer à quelle direction correspond chaque axe ainsi que le point de départ des axes.
 
 ### `row` (default)
@@ -228,6 +230,14 @@ Cette propriété nous permet de déterminer à quelle direction correspond chaq
 La direction par défaut est la ligne. Cela signifie que l'axe principal est horizontal et que l'axe transversal est
 vertical. Cela signifie également que l'axe principal commence à gauche tandis que l'axe transversal commence en haut.
 
+```css
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+```
 ### `row-reverse`
 
 ### `column`

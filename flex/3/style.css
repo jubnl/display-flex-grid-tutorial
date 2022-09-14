@@ -1,0 +1,66 @@
+body {
+    background-color: #333333;
+    font-family: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: flex-start;
+
+    /* styling */
+    border: 2px dashed #fff;
+    margin: 0 auto 1rem;
+    position: relative;
+    height: 100%;
+    max-width: 650px;
+}
+
+.direction-row {
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.direction-row-reverse {
+    flex-direction: row-reverse;
+    align-items: flex-start;
+}
+
+.direction-col {
+    flex-direction: column;
+    align-items: center;
+}
+
+.direction-col-reverse {
+    flex-direction: column-reverse;
+    align-items: center;
+}
+
+.flex-item {
+    width: 20%;
+
+    /* styling */
+    background-color: #006699FF;
+    border: 1px solid #fff;
+    font-size: 2.5rem;
+    color: #fff;
+
+    /* center text horizontally + vertically */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-item:nth-child(1) {
+    height: 75px;
+
+    /* uncomment to see height initial */
+    /* height: initial; */
+}
+
+.flex-item:nth-child(2) {
+    height: 100px;
+}
+
+.flex-item:nth-child(3) {
+    height: 125px;
+}
