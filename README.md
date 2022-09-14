@@ -1,3 +1,3 @@
-[`display: fley`](flex)
+[`display: flex`](flex)
 
 [`display: grid`](grid)
