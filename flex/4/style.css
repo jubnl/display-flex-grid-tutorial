@@ -5,6 +5,7 @@ body {
 
 .flex-container {
     display: flex;
+    align-items: flex-start;
 
     /* styling */
     border: 2px dashed #fff;
@@ -12,30 +13,6 @@ body {
     position: relative;
     height: 100%;
     max-width: 650px;
-}
-
-.justify-flex-start {
-    justify-content: flex-start;
-}
-
-.justify-flex-end {
-    justify-content: flex-end;
-}
-
-.justify-center {
-    justify-content: center;
-}
-
-.justify-space-around {
-    justify-content: space-around;
-}
-
-.justify-space-between {
-    justify-content: space-between;
-}
-
-.justify-space-evenly {
-    justify-content: space-evenly;
 }
 
 .flex-item {
@@ -51,6 +28,22 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.flex-item:nth-child(1) {
+    height: 75px;
+}
+
+.flex-item:nth-child(2) {
+    height: 100px;
+}
+
+.flex-item:nth-child(3) {
+    height: 125px;
+}
+
+.align-self {
+    align-self: flex-end;
 }
 
 .white {

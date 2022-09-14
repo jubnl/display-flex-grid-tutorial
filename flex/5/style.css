@@ -5,6 +5,7 @@ body {
 
 .flex-container {
     display: flex;
+    align-items: flex-start;
 
     /* styling */
     border: 2px dashed #fff;
@@ -12,15 +13,6 @@ body {
     position: relative;
     height: 100%;
     max-width: 650px;
-
-    /* default values */
-    /*
-    justify-content: flex-start;
-    align-items: stretch;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-content: normal;
-    */
 }
 
 .flex-item {
@@ -36,6 +28,42 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.width-50 {
+    width: 50%;
+}
+
+.width-10 {
+    width: 10%;
+}
+
+.width-30 {
+    width: 30%;
+}
+
+.grow-1 {
+    flex-grow: 1;
+}
+
+.grow-2 {
+    flex-grow: 2;
+}
+
+.basis-0 {
+    flex-basis: 0;
+}
+
+.basis-40 {
+    flex-basis: 40%;
+}
+
+.shrink-0 {
+    flex-shrink: 0;
+}
+
+.shrink-2 {
+    flex-shrink: 2;
 }
 
 .white {

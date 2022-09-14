@@ -298,13 +298,50 @@ l'axe principal/croisé.
 
 ## Flex Item Layout
 
-## Sizing Flex Items
+Vous pouvez retrouver un exemple du `align-self` [ici](4).
 
-### `flex-grow`
+Jusqu'à présent, tout ce que nous avons abordé concernait la mise en page de l'ensemble du conteneur flexible. Nous
+pouvons cependant aller plus loin et avoir des dispositions spécifiques pour chaque élément du conteneur flexible.
+Cela se fait par le biais de la propriété `align-self`.
 
-### `flex-basis`
+```css
+.flex-container {
+  display: flex;
+  align-items: flex-start;
+}
 
-### `flex-shrink`
+.flex-item:nth-child(1) {
+  align-self: flex-end;
+}
+```
+
+![align-self](assets/4_align-self.png "align-self: flex-end;")
+
+Comme vous pouvez le voir dans l'exemple ci-dessus, nous avons défini la propriété `align-self` du premier enfant sur
+FlexEnd et il est maintenant aligné au bas de notre axe transversal, même si le conteneur flexible dans son ensemble a
+un `align-items` de `flex-start`.
+
+Cette propriété `align-self` peut être utilisée avec n'importe quelle valeur `align-items` pour placer chaque élément du
+conteneur exactement là où vous le souhaitez.
+
+Une chose importante à noter, cependant, est qu'il n'y a aucun moyen de faire `justify-self` puisque toute justification
+est prise en charge par le parent uniquement.
+
+### Dimensionnement des Items Flex
+
+Nous arrivons maintenant à ce qui est probablement la partie la plus déroutante de Flexbox, à savoir le dimensionnement
+des éléments individuels, mais je vous promets que je vais rendre cela aussi facile que possible à comprendre.
+
+La véritable puissance de flexbox ne réside pas dans ses propriétés de mise en page (même si elles sont étonnantes),
+mais dans sa capacité à redimensionner les éléments en fonction de la taille des autres éléments de votre page. Cela se
+fait par le biais de trois propriétés différentes : `flex-grow`, `flex-shrink` et `flex-basis`. Je veux d'abord parler
+de `flex-grow`, car c'est la propriété que vous utiliserez le plus souvent.
+
+#### `flex-grow`
+
+#### `flex-basis`
+
+#### `flex-shrink`
 
 ## Flex Wrapping
 
