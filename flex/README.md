@@ -534,13 +534,98 @@ pouvez faire tenir sur une ligne.
 }
 ```
 
+![wrap-1](assets/6_wrap-1.png)
 
+Comme nos éléments ont une largeur de 50 %, ils devraient normalement rétrécir pour tenir sur une seule ligne, mais nous
+avons défini la propriété `flex-wrap` sur `wrap`, ce qui signifie que si un élément déborde du conteneur, il est placé 
+sur une nouvelle ligne. C'est très bien si vous utilisez la propriété wrap pour vous assurer que même si votre liste
+d'éléments devient trop grande, elle sera toujours belle, mais si vous utilisez la propriété wrap pour créer une mise en
+page bidimensionnelle, vous utilisez flexbox de manière incorrecte. Vous devriez plutôt envisager d'utiliser la `grid`
+CSS.
+
+Si vous voulez empêcher un conteneur flex de se "wrap", vous devez définir la propriété wrap sur `nowrap`.
+
+```css
+.flex-container {
+  flex-wrap: nowrap;
+}
+```
 
 ### Advanced Wrapping Layout
 
+Si vous utilisez `flex-wrap` dans une mise en page en colonnes, les éléments s'enrouleront (wrap) sur de nouvelles
+colonnes au lieu de lignes.
+
+```css
+.flex-container {
+  flex-direction: column;
+  height: 250px;
+  flex-wrap: wrap;
+}
+
+.flex-item {
+  height: 100px;
+}
+```
+
+![wrap-2](assets/6_wrap-2.png)
+
+Une autre chose importante à savoir est que maintenant qu'il y a plusieurs lignes/colonnes, vous pouvez utiliser
+`align-content` pour mettre en page la façon dont les différentes lignes/colonnes interagissent.
+
+Dans une disposition flexbox normale, vous pouvez utiliser `justify-content` pour espacer les éléments sur l'axe
+principal et `align-content` est essentiellement la même chose, mais pour espacer les éléments sur l'axe transversal.
+Cette propriété n'a d'importance que si le paramètre `flex-wrap` est défini sur wrap et que le contenu est "wrappé".
+
+Par exemple, dans une disposition flexbox normale, la propriété `align-content` est définie sur `normal`, ce qui
+signifie qu'aucun alignement spécifique n'est défini. Si nous voulons, nous pouvons utiliser tous les alignements
+fantaisistes disponibles pour `justify-content` dans `align-content`.
+
+```css
+.flex-container {
+  height: 250px;
+  flex-wrap: wrap;
+  align-content: flex-end;
+}
+
+.flex-item {
+  width: 50%;
+  height: 100px;
+}
+```
+
+![wrap-3](assets/6_wrap-3.png)
+
+Comme vous pouvez le constater, tous les éléments sont positionnés au bas du conteneur, ce qui correspond à l'extrémité
+de l'axe transversal. Si nous devions utiliser une disposition en colonnes à la place, alors `align-content`
+positionnerait les éléments horizontalement.
+
+```css
+.flex-container {
+  flex-direction: column;
+  height: 250px;
+  flex-wrap: wrap;
+  align-content: center;
+}
+
+.flex-item {
+  height: 100px;
+}
+```
+
+![wrap-4](assets/6_wrap-4.png)
+
 ## Advanced Flexbox Properties
 
+Maintenant que nous avons couvert toutes les propriétés de base et même les propriétés intermédiaires pour le flexbox,
+je veux maintenant couvrir quelques propriétés avancées/niches du flexbox.
+
 ### Adding Gaps
+
+Une chose que nous n'avons pas encore abordée est la possibilité d'ajouter des espaces entre les éléments dans un
+conteneur flexbox. Vous pouvez essayer de le faire avec les marges et l'espacement, mais le moyen le plus simple est
+d'utiliser la propriété `gap`. Cette propriété ajoutera un espace entre chaque élément en fonction de la valeur que nous
+passons à `gap`.
 
 ### Ordering Elements
 

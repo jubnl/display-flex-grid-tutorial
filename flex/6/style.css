@@ -1,0 +1,66 @@
+body {
+    background-color: #333333;
+    font-family: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: stretch;
+    flex-direction: row;
+    align-content: normal;
+
+    /* styling */
+    border: 2px dashed #fff;
+    margin: 0 auto 1rem;
+    position: relative;
+    height: 100%;
+    max-width: 650px;
+}
+
+.flex-item {
+    width: 50%;
+    height: 100px;
+
+    /* styling */
+    background-color: #006699FF;
+
+    /* workaround for border inside element instead of outside */
+    box-shadow: inset -1px 0 0 white, inset 0 -1px 0 white, inset 1px 0 0 white, inset 0 1px 0 white;
+    /* border: 0px solid #fff; */
+    font-size: 2.5rem;
+    color: #fff;
+
+    /* center text horizontally + vertically */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrap {
+    flex-wrap: wrap;
+}
+
+.width-20 {
+    width: 20%;
+}
+
+.height-250 {
+    height: 250px;
+}
+
+.direction-column {
+    flex-direction: column;
+}
+
+.align-flex-end {
+    align-content: flex-end;
+}
+
+.align-center {
+    align-content: center;
+}
+
+.white {
+    color: white;
+}
