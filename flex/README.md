@@ -738,4 +738,65 @@ puisque c'est l'ordre dans lequel ils apparaissent dans le code HTML.
 
 ### Flex Shorthand
 
+Nous avons déjà parlé des 3 propriétés principales utilisées pour dimensionner un élément flex, `flex-grow`,
+`flex-shrink`, et `flex-basis`. En général, vous n'aurez besoin de définir qu'une seule de ces propriétés à la fois,
+mais si vous voulez en définir plusieurs à la fois, vous pouvez utiliser la propriété raccourcie `flex` qui définit les
+3 propriétés.
+
+```css
+.flex-item {
+  flex: 1 0 10px;
+}
+```
+
+Le code ci-dessus est le même que :
+
+```css
+.flex-item {
+  flex-grow: 1;
+  flex-shrink: 0;
+  flex-basis: 10px;
+}
+```
+
+La façon dont cette propriété fonctionne est que la première valeur est passée à `flex-grow`, la deuxième valeur est
+passée à `flex-shrink`, et la troisième propriété est passée à `flex-basis`. Si vous ne définissez que la première
+propriété, la propriété `flex-grow` sera simplement définie. CSS est suffisamment intelligent, cependant, si
+vous passez une valeur de largeur, telle que 10px, comme seule propriété à `flex`, alors il ne définira que la propriété
+`flex-basis`.
+
+```css
+.flex-item {
+  flex: 2;
+}
+/* Same as */
+.flex-item {
+  flex-grow: 2;
+  flex-shrink: 1;
+  flex-basis: 0;
+}
+```
+
+```css
+.flex-item {
+  flex: 10px;
+}
+/* Same as */
+.flex-item {
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: 10px;
+}
+```
+
+Lorsque vous utilisez le raccourci `flex`, `flex-grow` aura par défaut la valeur 0, sauf si elle est définie,
+`flex-shrink` aura par défaut la valeur 1, et `flex-basis` aura par défaut la valeur 0. Il est important de noter que
+`flex-basis` est normalement auto, mais si vous utilisez le raccourci `flex`, `flex-basis` aura par défaut la valeur 0,
+excepté si elle est définie.
+
 ## Conclusion
+
+Et enfin, nous arrivons à la fin du guide ultime de la flexbox. Je sais que c'était une tonne d'informations à couvrir,
+mais j'espère qu'au moins une partie a été retenue. Je sais qu'il est impossible de mémoriser tout cela en une seule
+fois, mais vous pouvez revenir continuellement à cet article pour des rafraîchissements rapides sur ce que fait chaque
+propriété.
