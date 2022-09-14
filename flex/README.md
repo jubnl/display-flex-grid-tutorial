@@ -228,7 +228,11 @@ Cette propriété nous permet de déterminer à quelle direction correspond chaq
 La direction par défaut est la ligne. Cela signifie que l'axe principal est horizontal et que l'axe transversal est
 vertical. Cela signifie également que l'axe principal commence à gauche tandis que l'axe transversal commence en haut.
 
+### `row-reverse`
 
+### `column`
+
+### `column-reverse`
 
 ## Flex Item Layout
 
