@@ -456,7 +456,85 @@ La dernière propriété de dimensionnement dont nous devons parler est le `flex
 
 #### `flex-shrink`
 
+Au début de cet article, j'ai mentionné que si les éléments flexibles d'un conteneur débordent du conteneur, ils seront
+automatiquement rétrécis pour atteindre la taille correcte. C'est parce que par défaut, `flex-shrink` est défini à 1
+sur tous les éléments flexibles.
+
+```css
+.flex-item {
+  width: 50%;
+}
+```
+
+![flex-shrink-1](assets/5_flex-shrink-3.png)
+
+Bien que chaque élément doive représenter 50 % de la taille du conteneur, il se rétrécit uniformément de sorte que
+chaque élément ne représente que 33 % de la taille du conteneur. Si nous voulions empêcher l'un des enfants de rétrécir,
+nous pourrions définir le paramètre `flex-shrink` à 0.
+
+```css
+.flex-item {
+  width: 50%;
+}
+
+.flex-item:nth-child(1) {
+  flex-shrink: 0;
+}
+```
+
+![flex-shrink-2](assets/5_flex-shrink-1.png)
+
+Comme vous pouvez le constater, le premier élément conserve 50 % de la taille du conteneur et ne rétrécit pas, tandis
+que les deux autres éléments rétrécissent pour que tous les éléments puissent entrer dans le conteneur.
+
+Nous pouvons également faire en sorte que certains elements rétrécissent plus que d'autres.
+
+```css
+.flex-item {
+  width: 50%;
+}
+
+.flex-item:nth-child(1) {
+  flex-shrink: 2;
+}
+```
+
+![flex-shrink-3](assets/5_flex-shrink-2.png)
+
+En définissant le paramètre `flex-shrink` à 2, nous disons que le premier élément doit perdre 2 parties de l'espace
+débordant alors que les deux autres éléments ne perdent chacun qu'une partie puisqu'ils sont définis à un `flex-shrink`
+de 1 par défaut. Cela fonctionne exactement de la même manière que `flex-grow` en ce qui concerne les proportions, mais
+`flex-shrink` traite de l'espace débordant à l'extérieur du conteneur tandis que `flex-grow` traite de l'espace restant
+à l'intérieur du conteneur.
+
+Dans la plupart des cas, il ne s'agit pas d'une propriété avec laquelle vous aurez à composer, puisque vous ne vous
+souciez généralement que de la croissance des objets et que le rétrécissement par défaut en cas de débordement est
+généralement ce que vous voulez.
+
+De plus, une chose importante à noter est que `flex-shrink` est assez intelligent et s'assurera que si vous avez un
+très gros objet et un très petit objet, ils se rétréciront de manière que le gros objet se rétrécisse plus afin
+que le petit objet ne se rétrécisse pas au point de disparaître.
+
+C'est tout ce que vous devez savoir sur le dimensionnement des éléments flexibles, mais que se passe-t-il si vous voulez
+vous assurer que les éléments ne rétrécissent pas et qu'ils peuvent s'enrouler sur une nouvelle ligne si nécessaire.
+
 ## Flex Wrapping
+
+Lorsque vous travaillez en flexbox, vous travaillez généralement avec une seule ligne d'éléments, mais il arrive
+parfois, en de rares occasions, que vous souhaitiez gérer l'habillage lorsque vous avez plus d'éléments que ce que vous
+pouvez faire tenir sur une ligne.
+
+```css
+.flex-container {
+  flex-wrap: wrap;
+}
+
+.flex-item {
+  width: 50%;
+}
+```
+
+
 
 ### Advanced Wrapping Layout
 
