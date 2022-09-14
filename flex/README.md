@@ -38,7 +38,7 @@ l'axe principal.
 
 ### `justify-content`
 
-Vous pouvez retrouver un exemple du `justify-content` [ici](1).
+Vous pouvez retrouver un exemple de la propriété `justify-content` [ici](1).
 
 Pour tous ces exemples, nous supposerons que les éléments flexibles ont une largeur de 20 %.
 
@@ -128,7 +128,7 @@ le même que l'espace entre les éléments au lieu de la moitié de la taille.
 
 ### `align-items`
 
-Vous pouvez retrouver un exemple du `justify-content` [ici](2).
+Vous pouvez retrouver un exemple de la propriété `align-items` [ici](2).
 
 Pour tous ces exemples, nous supposerons que les éléments flexibles ont tous une largeur de 20 %, mais que les éléments
 ont tous des hauteurs différentes.
@@ -222,7 +222,7 @@ Il existe une propriété appelée `flex-direction` qui détermine l'orientation
 
 ## `flex-direction`
 
-Vous pouvez retrouver un exemple du `flex-direction` [ici](3).
+Vous pouvez retrouver un exemple de la propriété `flex-direction` [ici](3).
 
 Cette propriété nous permet de déterminer à quelle direction correspond chaque axe ainsi que le point de départ des axes.
 
@@ -299,7 +299,7 @@ l'axe principal/croisé.
 
 ## Flex Item Layout
 
-Vous pouvez retrouver un exemple du `align-self` [ici](4).
+Vous pouvez retrouver un exemple de la propriété `align-self` [ici](4).
 
 Jusqu'à présent, tout ce que nous avons abordé concernait la mise en page de l'ensemble du conteneur flexible. Nous
 pouvons cependant aller plus loin et avoir des dispositions spécifiques pour chaque élément du conteneur flexible.
@@ -329,6 +329,8 @@ Une chose importante à noter, cependant, est qu'il n'y a aucun moyen de faire `
 est prise en charge par le parent uniquement.
 
 ### Dimensionnement des Items Flex
+
+Vous pouvez retrouver un exemple des propriétés `flex-grow`/`flex-basis`/`flex-shrink` [ici](5).
 
 Nous arrivons maintenant à ce qui est probablement la partie la plus déroutante de Flexbox, à savoir le dimensionnement
 des éléments individuels, mais je vous promets que je vais rendre cela aussi facile que possible à comprendre.
@@ -520,6 +522,8 @@ vous assurer que les éléments ne rétrécissent pas et qu'ils peuvent s'enroul
 
 ## Flex Wrapping
 
+Vous pouvez retrouver un exemple de la propriété `flex-wrap` [ici](6).
+
 Lorsque vous travaillez en flexbox, vous travaillez généralement avec une seule ligne d'éléments, mais il arrive
 parfois, en de rares occasions, que vous souhaitiez gérer l'habillage lorsque vous avez plus d'éléments que ce que vous
 pouvez faire tenir sur une ligne.
@@ -615,19 +619,122 @@ positionnerait les éléments horizontalement.
 
 ![wrap-4](assets/6_wrap-4.png)
 
-## Advanced Flexbox Properties
+## Propriétés avancées des Flexbox
 
 Maintenant que nous avons couvert toutes les propriétés de base et même les propriétés intermédiaires pour le flexbox,
 je veux maintenant couvrir quelques propriétés avancées/niches du flexbox.
 
-### Adding Gaps
+### Ajouter des écarts
+
+Vous pouvez retrouver un exemple de la propriété `gap` [ici](7).
 
 Une chose que nous n'avons pas encore abordée est la possibilité d'ajouter des espaces entre les éléments dans un
 conteneur flexbox. Vous pouvez essayer de le faire avec les marges et l'espacement, mais le moyen le plus simple est
 d'utiliser la propriété `gap`. Cette propriété ajoutera un espace entre chaque élément en fonction de la valeur que nous
 passons à `gap`.
 
-### Ordering Elements
+```css
+.flex-container {
+  gap: 10px;
+}
+```
+
+![gap-1](assets/7_gap-1.png)
+
+Comme vous pouvez le constater, chacun de nos éléments ci-dessus est séparé par un espace de 10px. Cet écart fonctionne
+également pour les conteneurs flex multilignes.
+
+```css
+.flex-container {
+  flex-direction: column;
+  height: 250px;
+  flex-wrap: wrap;
+  align-content: center;
+  gap: 10px;
+}
+
+.flex-item {
+  height: 100px;
+}
+```
+
+![gap-2](assets/7_gap-2.png)
+
+Comme vous pouvez le voir, chacune de nos lignes/colonnes a un espace de 10px.
+
+Nous pouvons également aller un peu plus loin et définir uniquement un écart de ligne ou uniquement un écart de colonne.
+
+```css
+.flex-container {
+  flex-direction: column;
+  height: 250px;
+  flex-wrap: wrap;
+  align-content: center;
+  row-gap: 10px;
+}
+
+.flex-item {
+  height: 100px;
+}
+```
+
+![gap-3](assets/7_gap-3.png)
+
+```css
+.flex-container {
+  flex-direction: column;
+  height: 250px;
+  flex-wrap: wrap;
+  align-content: center;
+  column-gap: 10px;
+}
+
+.flex-item {
+  height: 100px;
+}
+```
+
+![gap-4](assets/7_gap-4.png)
+
+### Ordre des elements
+
+Vous pouvez retrouver un exemple de la propriété `order` [ici](8).
+
+Par défaut, nous pouvons ordonner les éléments dans l'ordre normal ou dans l'ordre inverse en utilisant
+`flex-direction`, mais nous pouvons aussi ordonner des éléments individuels avec la propriété `order`.
+
+```css
+.flex-item:nth-child(1) {
+  order: 2
+}
+
+.flex-item:nth-child(2) {
+  order: 1
+}
+
+.flex-item:nth-child(3) {
+  order: 1
+}
+```
+
+![order](assets/8_order.png)
+
+Comme vous pouvez le voir, en spécifiant la propriété `order` de nos éléments, nous pouvons déterminer l'ordre exact de
+ceux-ci. Par défaut, chaque élément a un ordre de 0 et puisque flexbox disposera tous les éléments dans le même ordre en
+fonction de leur ordre dans le HTML, vous remarquerez que si vous ne définissez pas d'ordre, tous les éléments resteront
+dans le même ordre qu'ils sont dans le HTML.
+
+Dans notre exemple, nous avons spécifié un ordre de 2 pour notre premier élément, puis un ordre de 1 pour nos deux
+autres éléments. Lorsque flexbox dispose les éléments, il commence par l'ordre le plus bas, soit 1 dans notre cas.
+Comme nos deuxième et troisième éléments ont tous deux le même ordre, ils seront classés sur la base de leur ordre
+HTML, de sorte que le deuxième élément viendra en premier et le troisième élément en second. Enfin, notre premier
+élément a un ordre de 2, ce qui est plus grand que 1, il sera donc placé comme dernier élément.
+
+Cela peut sembler être une astuce sympa qui vous permet de modifier le fonctionnement de votre page, mais je vous
+recommande de ne jamais utiliser la propriété order. La raison en est que cela ne fonctionne pas bien avec les lecteurs
+d'écran, car ceux-ci lisent toujours en fonction de l'ordre HTML. Ainsi, dans notre scénario ci-dessus, une personne
+regardant l'écran verra les chiffres dans l'ordre 2, 3, 1, tandis qu'un lecteur d'écran les verra dans l'ordre 1, 2, 3,
+puisque c'est l'ordre dans lequel ils apparaissent dans le code HTML.
 
 ### Flex Shorthand
 
