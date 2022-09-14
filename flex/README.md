@@ -10,7 +10,8 @@ que nous devons faire est de définir la propriété display de l'élément pare
 
 [Example](0)
 
-Resultat :
+Résultat :
+
 ![result flexbox](assets/0.png "Check out the code")
 
 Comme vous pouvez le voir, par défaut, lorsque nous spécifions un affichage de flex sur un élément, nous définissons cet
@@ -339,7 +340,119 @@ de `flex-grow`, car c'est la propriété que vous utiliserez le plus souvent.
 
 #### `flex-grow`
 
+La propriété `flex-grow` est une propriété que vous définissez sur un élément flex et qui indique à l'élément la
+quantité d'espace supplémentaire qu'il est autorisé à prendre pour remplir son conteneur. Par défaut, cette propriété
+est définie sur 0, ce qui signifie que l'élément n'obtient pas d'espace supplémentaire. Examinons d'abord un conteneur
+flexible dans lequel aucun des éléments n'a la propriété `flex-grow` définie.
+
+![base](assets/0.png "base")
+
+Comme vous pouvez le constater, chaque élément n'occupe que sa largeur et le reste de l'espace du conteneur n'est pas
+rempli. C'est le comportement par défaut de flexbox, mais si vous voulez qu'un ou plusieurs éléments remplissent
+l'espace restant, vous devez utiliser `flex-grow`.
+
+```css
+.flex-item:nth-child(2) {
+  flex-grow: 1;
+}
+```
+
+![flex-grow-1](assets/5_flex-grow-1.png "flex-grow: 1")
+
+En définissant un `flex-grow` de 1, nous indiquons au deuxième élément qu'il doit obtenir 1 partie de l'espace
+supplémentaire et, comme aucun autre élément n'a de `flex-grow`, cette 1 partie de l'espace supplémentaire est la
+totalité de l'espace supplémentaire.
+
+```css
+.flex-item:nth-child(1),
+.flex-item:nth-child(2) {
+  flex-grow: 1;
+}
+```
+
+![flex-grow-2](assets/5_flex-grow-2.png "flex-grow: 1")
+
+Dans cet exemple, nous avons réglé le premier et le deuxième élément sur un `flex-grow` de 1. Chacun de ces éléments
+recevra donc 1 partie de l'espace restant. Pour déterminer combien d'espace cela représente, il suffit d'additionner
+tous les numéros de `flex-grow` de chaque élément du conteneur (1 + 1 = 2), puis de diviser le `flex-grow` de chaque
+élément par ce nombre. Puisque notre `flex-grow` pour chaque élément est de 1, chaque élément se verra ajouter la moitié
+de l'espace restant.
+
+Il est cependant possible de créer des agencements plus complexes en donnant à certains éléments plus ou moins d'espace
+disponible.
+
+```css
+.flex-item:nth-child(1) {
+  flex-grow: 2;
+}
+
+.flex-item:nth-child(2) {
+  flex-grow: 1;
+}
+```
+
+Dans cet exemple, nous disons que le premier élément devrait obtenir 2 parties de l'espace restant tandis que le
+second élément n'en obtient qu'une partie. En faisant le calcul, nous verrons que le premier élément obtient 2/3 de
+l'espace restant tandis que le second élément n'obtient qu'un tiers de l'espace restant.
+
+![flex-grow-3](assets/5_flex-grow-3.png "flex-grow: 1; flex-grow: 2")
+
+À première vue, vous pouvez penser que ce code dit que le premier élément doit être deux fois plus grand que le second,
+mais flex grow ne se soucie que de l'espace restant après que tous les éléments ont été ajoutés au conteneur.
+Puisque par défaut nos 3 éléments occupent 60% de la taille du conteneur, l'espace restant à diviser entre les éléments
+n'est que de 40% de la taille du conteneur. Nous pouvons cependant modifier la façon dont cet espace restant est calculé
+en utilisant `flex-basis`.
+
 #### `flex-basis`
+
+La propriété `flex-basis` indique à notre conteneur flex l'espace que prend l'élément dans le conteneur. Par défaut,
+elle est définie sur `auto`, ce qui signifie qu'elle utilise simplement la propriété `width` de l'élément pour la
+calculer.
+
+```css
+.flex-item:nth-child(1) {
+  flex-basis: 40%;
+}
+```
+
+![flex-basis-1](assets/5_flex-basis-1.png "flex-basis: 40%")
+
+Dans le code ci-dessus, nous avons défini la `flex-basis` du premier élément à 40 %. Ainsi, au lieu d'occuper 20 % de la
+largeur (ce que nous avons défini comme la largeur de l'élément), il occupera 40 % de la `width` du conteneur. Cela
+signifie maintenant qu'il reste moins d'espace dans le conteneur à diviser avec `flex-grow`.
+
+Cette propriété n'est vraiment utile que lorsque vous souhaitez modifier la largeur des éléments dans le conteneur flex
+afin qu'ils fonctionnent mieux avec `flex-grow`. Par exemple, disons que vous souhaitez créer trois éléments de taille
+égale dans votre conteneur, mais qu'ils ont tous une largeur initiale différente que vous ne pouvez pas modifier.
+
+![flex-basis-2](assets/5_flex-basis-4.png)
+
+```css
+.flex-item {
+  flex-grow: 1;
+}
+```
+
+![flex-basis-3](assets/5_flex-basis-2.png)
+
+Vous pouvez penser qu'en fixant `flex-grow` à 1, ils auront tous la même taille, mais comme ils commencent à des
+largeurs différentes, ils finiront à des largeurs différentes puisque la quantité d'espace supplémentaire ajoutée aux
+éléments est exactement la même pour chacun, indépendamment de leur taille.
+
+Pour contourner ce problème, vous devez donner à tous les éléments la même `flex-basis` afin qu'ils commencent tous à
+la même taille et croissent au même rythme. En général, vous utiliserez 0 pour la `flex-basis`, car cela garantit que
+tous les éléments ont toujours la même taille, quelle que soit leur taille de départ.
+
+```css
+.flex-item {
+  flex-grow: 1;
+  flex-basis: 0;
+}
+```
+
+![flex-basis-4](assets/5_flex-basis-3.png)
+
+La dernière propriété de dimensionnement dont nous devons parler est le `flex-shrink`, que nous avons déjà vu en action.
 
 #### `flex-shrink`
 
