@@ -736,7 +736,29 @@ d'écran, car ceux-ci lisent toujours en fonction de l'ordre HTML. Ainsi, dans n
 regardant l'écran verra les chiffres dans l'ordre 2, 3, 1, tandis qu'un lecteur d'écran les verra dans l'ordre 1, 2, 3,
 puisque c'est l'ordre dans lequel ils apparaissent dans le code HTML.
 
-### Flex Shorthand
+### `flex-flow`
+
+Pour définir les propriétés `flex-direction` et `flex-wrap` en une seule ligne, il existe la propriété `flex-flow`.
+
+```css
+.flex-container {
+    display: flex;
+    flex-flow: wrap row-reverse;
+}
+```
+
+Même chose que :
+
+```css
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row-reverse;
+}
+```
+
+
+### `flex` Shorthand
 
 Nous avons déjà parlé des 3 propriétés principales utilisées pour dimensionner un élément flex, `flex-grow`,
 `flex-shrink`, et `flex-basis`. En général, vous n'aurez besoin de définir qu'une seule de ces propriétés à la fois,
