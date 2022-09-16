@@ -6,18 +6,6 @@ html {
     justify-content: center;
 }
 
-.flexbox-item-1 {
-    min-height: 100px;
-}
-
-.flexbox-item-2 {
-    min-height: 200px;
-}
-
-.flexbox-item-3 {
-    min-height: 300px;
-}
-
 .flexbox-container {
     position: relative;
     background-color: yellow;
